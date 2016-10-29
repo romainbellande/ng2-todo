@@ -5,7 +5,7 @@
   },
   "apps": [
     {
-      "root": "src",
+      "root": "src/client",
       "outDir": "dist",
       "assets": [
         "assets",
@@ -21,6 +21,8 @@
         "styles.css"
       ],
       "scripts": [
+        "../../node_modules/jquery/dist/jquery.min.js",
+        "../../node_modules/materialize-css/dist/js/materialize.js"
       ],
       "environments": {
         "source": "environments/environment.ts",
@@ -29,10 +31,8 @@
       }
     }
   ],
-  "addons": [
-  ],
-  "packages": [
-  ],
+  "addons": [],
+  "packages": [],
   "e2e": {
     "protractor": {
       "config": "./protractor.conf.js"

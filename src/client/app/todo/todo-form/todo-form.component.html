@@ -1,0 +1,13 @@
+<div>
+  <div class="input-field col s12">
+    <input type="text" class="validate" [(ngModel)]="todo.title">
+    <label for="email">Email</label>
+  </div>
+  <div class="input-field col s12">
+    <input type="text" class="validate" [(ngModel)]="todo.description">
+    <label for="email">Email</label>
+  </div>
+  <div class="input-field col s12">
+    <md-button (click)="submit()">Envoyer</md-button>
+  </div>
+</div>
