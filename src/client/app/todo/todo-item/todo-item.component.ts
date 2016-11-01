@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 
+import { TodoService } from '../todo.service';
 import { Todo } from '../todo.model';
 
 @Component({
@@ -9,4 +10,32 @@ import { Todo } from '../todo.model';
 })
 export class TodoItemComponent {
   @Input() todo: Todo;
+  isEditMod: boolean = false;
+  isActive: boolean = false;
+  constructor(private todoService: TodoService) {}
+  remove() {
+    this.todoService
+      .rest
+      .remove(this.todo._id)
+      .subscribe();
+  }
+
+  toggleActive() {
+    this.isActive = !this.isActive;
+  }
+
+  edit() {
+    this.isEditMod = true;
+  };
+
+  cancel() {
+    this.isEditMod = false;
+  }
+
+  update() {
+    this.todoService
+    .rest
+    .update(this.todo)
+    .subscribe();
+  }
 }

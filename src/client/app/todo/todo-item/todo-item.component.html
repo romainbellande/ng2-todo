@@ -1,5 +1,34 @@
 <div>
-  <p>Title: {{ todo.title }}</p>
-  <p>Description: {{ todo.description }}</p>
-  <md-button class="md-primary"></md-button>
+  <li class="collection-item" [routerLink]="['/todo', todo._id]">
+    <a href="#{{ todo._id }}"
+      [hidden]="isEditMod">
+
+      <span>{{ todo.title }}</span>
+
+      <span class="secondary-content">
+          <i class="material-icons">keyboard_arrow_right</i>
+      </span>
+    </a>
+  </li>
+  <div class="row" [hidden]="!isEditMod">
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <div class="card-title input-field">
+            <input type="text" class="validate" [(ngModel)]="todo.title">
+          </div>
+          <div class="input-field">
+            <input type="text" class="validate" [(ngModel)]="todo.description">
+          </div>
+        </div>
+        <div class="card-action">
+          <md-button class="md-primary" (click)="cancel()">Cancel</md-button>
+          <md-button class="md-primary" (click)="update()">Update</md-button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+

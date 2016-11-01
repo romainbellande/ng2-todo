@@ -13,6 +13,6 @@ import { MaterializeModule } from './materialize/materialize.module';
   ],
   exports: [MaterializeModule],
   declarations: [],
-  providers: [Rest],
+  providers: [],
 })
 export class SharedModule { }

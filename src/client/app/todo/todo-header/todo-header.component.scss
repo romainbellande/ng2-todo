@@ -1,0 +1,16 @@
+.progress {
+  position: absolute;
+  height: 4px;
+  display: none;
+  width: 100%;
+  background-color: #acece6;
+  border-radius: 2px;
+  margin: 0;
+  overflow: hidden;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  &.active {
+    display: block;
+  }
+}

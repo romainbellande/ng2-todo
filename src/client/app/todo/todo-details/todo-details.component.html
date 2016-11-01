@@ -1,0 +1,14 @@
+<div class="container" [hidden]="isEditMod">
+  <div>
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">{{ todo.title }}</span>
+        <p>Description: {{ todo.description }}</p>
+      </div>
+      <div class="card-action">
+        <md-button class="md-primary" (click)="edit()">Edit</md-button>
+        <md-button class="md-primary" (click)="remove()">Remove</md-button>
+      </div>
+    </div>
+  </div>
+</div>

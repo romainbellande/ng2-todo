@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 
-import { Rest } from '../../shared/rest/rest.service';
+import { TodoService } from '../todo.service';
 import { Todo } from '../todo.model';
 
 @Component({
@@ -10,16 +10,17 @@ import { Todo } from '../todo.model';
 })
 export class TodoFormComponent implements OnInit {
   todo: Todo;
-  todoRes: Todo;
-  constructor(private rest: Rest) { }
+  constructor(private todoService: TodoService) { }
 
   ngOnInit() {
     this.todo = new Todo();
   }
 
-  // submit() {
-  //   this.rest.post('/api/todo', this.todo)
-  //     .subscribe(todo => this.todoRes = todo);
-  // }
+  submit() {
+    this.todoService
+      .rest
+      .create(this.todo)
+      .subscribe();
+  }
 
 }

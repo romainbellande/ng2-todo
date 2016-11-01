@@ -1,13 +1,21 @@
-<div>
-  <div class="input-field col s12">
-    <input type="text" class="validate" [(ngModel)]="todo.title">
-    <label for="email">Email</label>
-  </div>
-  <div class="input-field col s12">
-    <input type="text" class="validate" [(ngModel)]="todo.description">
-    <label for="email">Email</label>
-  </div>
-  <div class="input-field col s12">
-    <md-button (click)="submit()">Envoyer</md-button>
+<div class="col s12 m6">
+  <div>
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <div class="input-field">
+          <input type="text" class="validate" [(ngModel)]="todo.title">
+          <label for="email">Title</label>
+        </div>
+        <div class="input-field">
+          <input type="text" class="validate" [(ngModel)]="todo.description">
+          <label for="email">Description</label>
+        </div>
+      </div>
+      <div class="card-action">
+        <div class="input-field">
+          <md-button (click)="submit()">Envoyer</md-button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
