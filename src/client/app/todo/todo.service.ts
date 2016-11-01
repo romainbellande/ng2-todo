@@ -10,20 +10,16 @@ export class TodoService {
   todos: Todo[];
   constructor(public rest: Rest) {
     this.todos = [];
-    this.rest.set('/api/todo');
+    this.rest.set('todo');
   }
 
   isEmpty(): boolean {
     return !this.rest.list;
   }
 
-  remove(_id: number): void {
-    const index = this.todos.findIndex(todo => todo._id === _id);
+  remove(id: number): void {
+    const index = this.todos.findIndex(todo => todo.id === id);
     this.todos.splice(index, 1);
-  }
-
-  update(_id: number) {
-
   }
 
   add(todo: Todo) {

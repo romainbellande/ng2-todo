@@ -43,17 +43,17 @@ export class Rest {
   }
 
   update(body): Observable<any> {
-      return this.http.put(`${this.url}/${body._id}`, JSON.stringify(body), this.options)
+      return this.http.put(`${this.url}/${body.id}`, JSON.stringify(body), this.options)
         .map((response: Response) => response.json())
         .catch((error) => {
           return this.handleError(error);
       });
   }
 
-  remove(_id: number): Observable<any> {
-      return this.http.delete(`${this.url}/${_id}`, this.options)
+  remove(id: number): Observable<any> {
+      return this.http.delete(`${this.url}/${id}`, this.options)
       .map((response: Response) => {
-        const index = this.list.findIndex(todo => todo._id === _id);
+        const index = this.list.findIndex(todo => todo.id === id);
         this.list.splice(index, 1);
       })
       .catch(this.handleError);
@@ -64,7 +64,7 @@ export class Rest {
   }
 
   set(url): void {
-    this.url = url;
+    this.url = '/api/v1/' + url;
   }
 
   private handleError (error: Response | any) {

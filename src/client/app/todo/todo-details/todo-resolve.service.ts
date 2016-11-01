@@ -19,12 +19,11 @@ export class TodoResolveService {
   }
 
   resolve(route: ActivatedRouteSnapshot): Observable<Todo> | boolean {
-    console.log(route);
-    let id: string = route.params['id'];
+    let id: number = +route.params['id'];
     if (this.todoService.isEmpty()) {
       return this.todoService.rest.findById(id);
     } else {
-      return this.todoService.rest.searchByProperty('_id', id);
+      return this.todoService.rest.searchByProperty('id', id);
     }
   }
 }

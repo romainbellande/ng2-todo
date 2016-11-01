@@ -16,7 +16,7 @@ export class TodoItemComponent {
   remove() {
     this.todoService
       .rest
-      .remove(this.todo._id)
+      .remove(this.todo.id)
       .subscribe();
   }
 
